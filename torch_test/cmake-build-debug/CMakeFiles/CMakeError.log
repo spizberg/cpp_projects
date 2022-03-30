@@ -1,0 +1,70 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/nathan/CLionProjects/torch_test/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/nathan/clion-2021.3.4/bin/ninja/linux/ninja cmTC_1ef1c && [1/2] Building C object CMakeFiles/cmTC_1ef1c.dir/src.c.o
+[2/2] Linking C executable cmTC_1ef1c
+FAILED: cmTC_1ef1c 
+: && /usr/bin/cc   CMakeFiles/cmTC_1ef1c.dir/src.c.o -o cmTC_1ef1c   && :
+/usr/bin/ld : CMakeFiles/cmTC_1ef1c.dir/src.c.o : dans la fonction « main » :
+src.c:(.text+0x46) : référence indéfinie vers « pthread_create »
+/usr/bin/ld : src.c:(.text+0x52) : référence indéfinie vers « pthread_detach »
+/usr/bin/ld : src.c:(.text+0x5e) : référence indéfinie vers « pthread_cancel »
+/usr/bin/ld : src.c:(.text+0x6f) : référence indéfinie vers « pthread_join »
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/nathan/CLionProjects/torch_test/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/nathan/clion-2021.3.4/bin/ninja/linux/ninja cmTC_bbeef && [1/2] Building C object CMakeFiles/cmTC_bbeef.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_bbeef
+FAILED: cmTC_bbeef 
+: && /usr/bin/cc -DCHECK_FUNCTION_EXISTS=pthread_create  CMakeFiles/cmTC_bbeef.dir/CheckFunctionExists.c.o -o cmTC_bbeef  -lpthreads && :
+/usr/bin/ld : ne peut trouver -lpthreads
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+
+
+Checking whether the CUDA compiler is NVIDIA using "" did not match "nvcc: NVIDIA \(R\) Cuda compiler driver":
+Checking whether the CUDA compiler is Clang using "" did not match "(clang version)":
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: CMAKE_CUDA_COMPILER-NOTFOUND 
+Build flags: 
+Id flags:  -v
+
+The output was:
+No such file or directory
+
+
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: CMAKE_CUDA_COMPILER-NOTFOUND 
+Build flags: 
+Id flags:  -v
+
+The output was:
+No such file or directory
+
+

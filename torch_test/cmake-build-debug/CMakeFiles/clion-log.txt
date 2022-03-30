@@ -1,0 +1,20 @@
+/home/nathan/clion-2021.3.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/nathan/clion-2021.3.4/bin/ninja/linux/ninja -G Ninja /home/nathan/CLionProjects/torch_test
+-- Caffe2: CUDA detected: 11.2
+-- Caffe2: CUDA nvcc is: /usr/local/cuda/bin/nvcc
+-- Caffe2: CUDA toolkit directory: /usr/local/cuda
+-- Caffe2: Header version is: 11.2
+-- Found cuDNN: v8.2.1  (include: /usr/include, library: /usr/lib/x86_64-linux-gnu/libcudnn.so)
+CMake Warning at /usr/local/include/libtorch/share/cmake/Caffe2/public/cuda.cmake:205 (message):
+  Failed to compute shorthash for libnvrtc.so
+Call Stack (most recent call first):
+  /usr/local/include/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:88 (include)
+  /usr/local/include/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)
+  CMakeLists.txt:5 (find_package)
+
+
+-- Autodetected CUDA architecture(s):  8.6
+-- Added CUDA NVCC flags for: -gencode;arch=compute_86,code=sm_86
+-- Found OpenCV: /usr/local (found version "4.5.5") 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/nathan/CLionProjects/torch_test/cmake-build-debug
